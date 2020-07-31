@@ -1,5 +1,5 @@
 using Microsoft.AspNetCore.Mvc;
-using BestRestaurant.Models;
+using Salon.Models;
 using System.Collections.Generic;
 using System.Linq;
 using Microsoft.EntityFrameworkCore;
@@ -7,18 +7,18 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace Salon.Controllers 
 {
-  public class ClientsController : Controllers
+  public class ClientsController : Controller
   {
     private readonly SalonContext _db;
 
-    public ItemsController(SalonContext db)
+    public ClientsController(SalonContext db)
     {
       _db = db;
     }
 
     public ActionResult Index()
     {
-        List<Client> model = _db.Clients.Include(clients => clients.Category).ToList();
+        List<Client> model = _db.Clients.Include(clients => clients.Stylist).ToList();
         return View(model);
     }
 
@@ -46,6 +46,7 @@ namespace Salon.Controllers
     {
       var thisClient = _db.Clients.FirstOrDefault(clients => clients.ClientId == id);
       ViewBag.StylistId = new SelectList(_db.Stylists, "StylistId", "Name");
+      
       return View(thisClient);
     }
 

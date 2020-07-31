@@ -3,11 +3,10 @@ using Salon.Models;
 using System.Collections.Generic;
 using System.Linq;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace Salon.Controllers 
 {
-  public class StylistsController : Controllers
+  public class StylistsController : Controller
   {
     private readonly SalonContext _db;
     
@@ -65,7 +64,7 @@ namespace Salon.Controllers
     public ActionResult DeleteConfirmed(int id)
     {
       var thisStylist = _db.Stylists.FirstOrDefault(stylist => stylist.StylistId == id);
-      _db.Categories.Remove(thisStylist);
+      _db.Stylists.Remove(thisStylist);
       _db.SaveChanges();
       return RedirectToAction("Index");
     }

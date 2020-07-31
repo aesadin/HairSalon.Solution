@@ -1,10 +1,10 @@
+using Salon.Models;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.EntityFrameworkCore;
-using Salon.Models;
 
 namespace Salon
 {
@@ -23,6 +23,7 @@ namespace Salon
     public void ConfigureServices(IServiceCollection services)
     {
       services.AddMvc();
+
       services.AddEntityFrameworkMySql()
         .AddDbContext<SalonContext>(options => options
         .UseMySql(Configuration["ConnectionStrings:DefaultConnection"]));
@@ -30,8 +31,6 @@ namespace Salon
 
     public void Configure(IApplicationBuilder app)
     {
-      app.UseStaticFiles();
-
       app.UseDeveloperExceptionPage();
 
       app.UseMvc(routes =>
@@ -41,11 +40,10 @@ namespace Salon
           template: "{controller=Home}/{action=Index}/{id?}");
       });
 
-      app.Run(async (context) =>
-      {
-        await context.Response.WriteAsync("Something went wrong!");
-      });
-
+        app.Run(async (context) =>
+        {
+          await context.Response.WriteAsync("Something went wrong!");
+        });
     }
   }
 }

@@ -2,7 +2,7 @@ using MySql.Data.MySqlClient;
 using System.Collections.Generic;
 using System;
 
-namespace BestRestaurant.Models
+namespace Salon.Models
 {
   public class Stylist
   {
@@ -11,7 +11,7 @@ namespace BestRestaurant.Models
       this.Clients = new HashSet<Client>();
     }
 
-    public int CuisineId { get; set; }
+    public int StylistId { get; set; }
     public string Name { get; set; }
     public string Availability { get; set; }
     public virtual ICollection<Client> Clients { get; set; } 
