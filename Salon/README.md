@@ -66,11 +66,39 @@ This application will allow the user to add Stylist information as well as Clien
 
 ## **SETUP & INSTALL**
 
-* _This program utilizes .NET version 2.2, and is a required instal for this program to function. Ensure .NET version 2.2 is installed before progressing._
+* _This program utilizes .NET version 2.2, and is a required install for this program to function. Ensure .NET version 2.2 is installed before progressing._
 
 *  _Recommended browser for everything in life. [Google Chrome](https://www.google.com/chrome/)_.
 
-*  _Github [repository](https://github.com/aesadin/Pierre_Bakery.Solution.git)_
+*  _Github [repository](https://github.com/aesadin/HairSalon.Solution.git)_
+
+## **SETUP & INSTALL FOR MySQL WorkBench and MySQL Community Server**
+
+* _Download the MySQL Community Server .dmg file from[MySQL](https://dev.mysql.com/downloads/file/?id=484914)_
+
+*  _Follow along with the Installer, create a password, click finish, open your bash terminal and enter the command: echo 'export PATH="/usr/local/mysql/bin:$PATH"' >> ~/.bash_profile_.
+
+*  _Then download MySQL Workbench from [MySQL](https://dev.mysql.com/downloads/file/?id=484391) and install MySQL Workbench to your applications folder_
+
+* _Here is the datatable necessary for this program to work:_
+
+CREATE DATABASE `allison_sadin` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci */;
+
+CREATE TABLE `clients` (
+`ClientId` int(11) NOT NULL AUTO_INCREMENT,
+`Name` varchar(255) DEFAULT NULL,
+`PhoneNumber` varchar(255) DEFAULT NULL,
+`Hairstyle` varchar(255) DEFAULT NULL,
+`StylistId` int(11) DEFAULT '0',
+PRIMARY KEY (`ClientId`)
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+CREATE TABLE `stylists` (
+`StylistId` int(11) NOT NULL AUTO_INCREMENT,
+`Name` varchar(255) DEFAULT NULL,
+`Availability` varchar(255) DEFAULT NULL,
+PRIMARY KEY (`StylistId`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci; 
 
 
 
@@ -78,7 +106,7 @@ This application will allow the user to add Stylist information as well as Clien
 
 * Download [Visual Studio Code](https://code.visualstudio.com/) (v1.45)
 
-* Download ZIP [here](https://github.com/aesadin/Pierre_Bakery.Solution.git) OR if you are comfortable cloning a repo, copy the link as shown below.
+* Download ZIP [here](https://github.com/aesadin/HairSalon.Solution.git) OR if you are comfortable cloning a repo, copy the link as shown below.
 
 ![cloning](https://coding-assets.s3-us-west-2.amazonaws.com/img/clone.gif "How to clone repo")
 
