@@ -28,7 +28,7 @@ This application will allow the user to add Stylist information as well as Clien
 * **Output Example:** /Stylists
 
 4. **Behavior:** The program will allow the user to click on a Stylist.
-* **Input Example:** "Italian"
+* **Input Example:** "Henry"
 * **Output Example:** /Stylists/Details/{StylistsId}
 
 5. **Behavior:** The program will allow the user to view all Clients.
@@ -36,11 +36,11 @@ This application will allow the user to add Stylist information as well as Clien
 * **Output Example:** /Clients
 
 6. **Behavior:** The program will allow the user to add a new Client to a specific Stylist.
-* **Input Example:** "Add a Resturant"
+* **Input Example:** "Add a Client"
 * **Output Example:** /Clients/Create
 
 7. **Behavior:** The program will allow the user to view Client details.
-* **Input Example:** "Johnnys Subs"
+* **Input Example:** "Jennifer Anniston: Very particular about her hair"
 * **Output Example:** /Clients/Details/{ClientsId}
 
 8. **Behavior:** The program will allow the user to edit Client details.
@@ -74,16 +74,20 @@ This application will allow the user to add Stylist information as well as Clien
 
 ## **SETUP & INSTALL FOR MySQL WorkBench and MySQL Community Server**
 
-* _Download the MySQL Community Server .dmg file from[MySQL](https://dev.mysql.com/downloads/file/?id=484914)_
+* _Download the MySQL Community Server .dmg file from [MySQL](https://dev.mysql.com/downloads/file/?id=484914)_
 
 *  _Follow along with the Installer, create a password, click finish, open your bash terminal and enter the command: echo 'export PATH="/usr/local/mysql/bin:$PATH"' >> ~/.bash_profile_.
 
 *  _Then download MySQL Workbench from [MySQL](https://dev.mysql.com/downloads/file/?id=484391) and install MySQL Workbench to your applications folder_
 
-* _Here is the datatable necessary for this program to work:_
+* _Install the MySQL database_
+  1. _Open a new terminal in your text editor (Ctrl+\` in V.S. Code) and run command `> echo 'export PATH="$PATH:/usr/local/mysql/bin"' >> ~/.zprofile`_
+  2. _Enter the command `> source ~/.zprofile` to confirm MsSQL has been installed_
+  3. _Connect to MySQL by running the command `> mysql -uroot -pepicodus`_
+  4. _Install the necessary MySQL database by copying the code block from below and entering it into your terminal_
+  5. _Once the following code block has been entered you will close MySQL by running the command `> exit`_
 
-CREATE DATABASE `allison_sadin` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci */;
-
+```CREATE DATABASE `allison_sadin` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci */;
 CREATE TABLE `clients` (
 `ClientId` int(11) NOT NULL AUTO_INCREMENT,
 `Name` varchar(255) DEFAULT NULL,
@@ -92,17 +96,17 @@ CREATE TABLE `clients` (
 `StylistId` int(11) DEFAULT '0',
 PRIMARY KEY (`ClientId`)
 ) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-
 CREATE TABLE `stylists` (
 `StylistId` int(11) NOT NULL AUTO_INCREMENT,
 `Name` varchar(255) DEFAULT NULL,
 `Availability` varchar(255) DEFAULT NULL,
 PRIMARY KEY (`StylistId`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci; 
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci; ```
 
 
 
-*  **Windows/Mac Users:** If modifying for personal use, dl Git [here](https://git-scm.com/downloads/) (v2.62.2)
+
+*  **Windows/Mac Users:** If modifying for personal use, Git [here](https://git-scm.com/downloads/) (v2.62.2)
 
 * Download [Visual Studio Code](https://code.visualstudio.com/) (v1.45)
 
@@ -126,7 +130,6 @@ PRIMARY KEY (`StylistId`)
 
 * Step 2: commit that .gitignore file (this prevents your sensitive information being shown to others). **DO NOT PROCEED TO UNTIL YOU DO THIS!**
 
-* Step 3: ignore step 3 for this project, as it does not utilize an API Key.
 
 ![setup](https://coding-assets.s3-us-west-2.amazonaws.com/img/readme-image.jpg "Set up instructions")
 
